@@ -7,3 +7,15 @@ run = ["sh", "-c", "gcc -o hello /home/runner/project2/src/hello.c"]
 
 [nix]
 channel = "stable-24_05"
+
+[workflows]
+runButton = "Run"
+
+[[workflows.workflow]]
+name = "Run"
+author = 38025180
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "gcc -o program src/main.c src/count_n.c && ./program"
